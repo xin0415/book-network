@@ -25,6 +25,7 @@ Book Social Network is a full-stack application that enables users to manage the
 #### Backend pipeline
 ![Security diagram](screenshots/fe-pipeline.png)
 
+study from: https://www.youtube.com/watch?v=WuPa_XoWlJU
 ## Technologies Used
 
 ### Backend (book-network)
