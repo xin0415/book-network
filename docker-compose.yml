@@ -20,13 +20,10 @@ services:
     ports:
       - 1080:1080
       - 1025:1025
+networks:
+  spring-demo:
+    driver: bridge
 
-
-  networks:
-    spring-demo:
-      driver: bridge
-
-  volumes:
-    postgres:
-      driver_opts:
-        driver: local
+volumes:
+  postgres:
+    driver: local
