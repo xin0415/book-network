@@ -67,3 +67,7 @@ By following this project, students will learn:
 - Implementing business requirements and handling business exceptions
 - Dockerizing the infrastructure
 - CI/CD pipeline & deployment
+
+## Run the application
+- run the "docker compose up -d" to create contains
+- 
