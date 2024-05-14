@@ -1,6 +1,7 @@
 package com.bookproject.book.book;
 
 import com.bookproject.book.common.PageResponse;
+import com.bookproject.book.exception.OperationNotPermittedException;
 import com.bookproject.book.history.BookTransactionHistory;
 import com.bookproject.book.history.BookTransactionHistoryRepository;
 import com.bookproject.book.user.User;
@@ -14,6 +15,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 import static com.bookproject.book.book.BookSpecification.*;
 
@@ -107,5 +109,31 @@ public class BookService {
                 allBorrowedBooks.isFirst(),
                 allBorrowedBooks.isLast()
         );
+    }
+
+    public Integer updateShareableStatus(Integer bookId, Authentication connectedUser) {
+        Book book=bookRepository.findById(bookId)
+                .orElseThrow(()->new EntityNotFoundException("No book found with the ID: "+bookId));
+        User user=((User) connectedUser.getPrincipal());
+        if(!Objects.equals(book.getOwner().getId(),user.getId())) {
+            //throw an exception -> create a new exception
+            throw new OperationNotPermittedException("You cannot update others books shareable status");
+        }
+        book.setShareable(!book.isShareable());
+        bookRepository.save(book);
+        return bookId;
+    }
+
+    public Integer updateArchivedStatus(Integer bookId, Authentication connectedUser) {
+        Book book=bookRepository.findById(bookId)
+                .orElseThrow(()->new EntityNotFoundException("No book found with the ID: "+bookId));
+        User user=((User) connectedUser.getPrincipal());
+        if(!Objects.equals(book.getOwner().getId(),user.getId())) {
+            //throw an exception -> create a new exception
+            throw new OperationNotPermittedException("You cannot update others books archived status");
+        }
+        book.setArchived(!book.isArchived());
+        bookRepository.save(book);
+        return bookId;
     }
 }
