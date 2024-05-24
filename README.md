@@ -101,6 +101,7 @@ https://www.youtube.com/watch?v=UtEHSngmdHA
 - docker-compose.yml
 - Dockerfile in backend
 - build the image and container and remember to change the version number below
-  - docker build -t bsn/bsn:1.0.0 -f docker/backend/Dockerfile .  - to build
+  - docker build-arg="APP_VERSION=1.0.x" -t bsn/bsn:1.0.0 -f docker/backend/Dockerfile .  - to build
     - docker compose up -d              -                               to setup the container
 - Dockerfile in frontend
+- docker compose down         - to remove everything
