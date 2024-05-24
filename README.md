@@ -73,3 +73,5 @@ By following this project, students will learn:
 - OpenApiConfig used to setup the request, Open this link http://localhost:8088/api/v1/swagger-ui/index.html#/
 
 ## Contains the study code
+
+## docker folder contains docker for frontend and backend
