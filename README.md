@@ -74,4 +74,33 @@ By following this project, students will learn:
 
 ## Contains the study code
 
+## Setup the docker
+https://www.youtube.com/watch?v=UtEHSngmdHA
+
+- one container contains many images
+
 ## docker folder contains docker for frontend and backend
+# backend part
+- run in source director "cd book-network"
+- ./mvnw clean package -DskipTests    -package application, it will create book-network-1.0.0.jar file in the target folder
+- run in command: docker build -t bsn/bsn:1.0.0 -f docker/backend/Dockerfile .      (remember this .)- bsn is contain name that you want to setup
+- version must match to the version in pom.xml file and update the version in docker-compose.yml
+- it will create image in docker
+- then add new service in docker-compose.yml
+- run the docker compose up -d            - to build our image
+# frontend part
+- setup the frontend Dockerfile
+- add nginx.conf file under frontend path
+- go the frontend path to build the UI container using: docker build -t bsn/bsn:1.0.0 -f docker/frontend/Dockerfile .
+- setup docker-compose.yml for frontend
+- run the docker compose up -d to build the image for frontend
+- update the cors filter to make backend allow the access from docker
+
+# files if need to change version number
+- pom.xml in backend
+- docker-compose.yml
+- Dockerfile in backend
+- build the image and container and remember to change the version number below
+  - docker build -t bsn/bsn:1.0.0 -f docker/backend/Dockerfile .  - to build
+    - docker compose up -d              -                               to setup the container
+- Dockerfile in frontend

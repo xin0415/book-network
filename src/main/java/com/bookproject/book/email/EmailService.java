@@ -36,6 +36,7 @@ public class EmailService {
         if(emailTemplate==null){
             templateName = "confirm-email";
         }else{
+//            templateName = emailTemplate.getName();       // best to use this one
             templateName = emailTemplate.name();
         }
 

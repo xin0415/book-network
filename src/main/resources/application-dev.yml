@@ -14,6 +14,11 @@ spring:
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
   mail:
+# used to setup email for gmail
+#    host: smtp.gamil.com
+#    port: 465
+#    username: gmail account
+#    password: gmail password
     host: localhost
     port: 1025
     username: abc
@@ -43,3 +48,52 @@ application:
       photos-output-path: ./uploads
 server:
   port: 8088
+
+  # setup for gmail or other email domain configuration
+#  spring:
+#    datasource:
+#      url: jdbc:postgresql://localhost:5432/book_social_network
+#      username: username
+#      password: password
+#      driver-class-name: org.postgresql.Driver
+#    jpa:
+#      hibernate:
+#        ddl-auto: update
+#      show-sql: false
+#      properties:
+#        hibernate:
+#          format_sql: true
+#      database: postgresql
+#      database-platform: org.hibernate.dialect.PostgreSQLDialect
+#    mail:
+#      host: ${EMAIL_HOST_NAME}
+#      port: 465
+#      username: ${EMAIL_USER_NAME}
+#      password: ${EMAIL_PASSWORD}
+#      properties:
+#        mail:
+#          smtp:
+#            auth: true
+#            ssl:
+#              enable: true
+#              trust: "*"
+#            starttls:
+#              enable: true
+#      protocol: smtp
+#  application:
+#    security:
+#      jwt:
+#        secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+#        expiration: 86400000 # a day
+#        refresh-token:
+#          expiration: 604800000 # 7 days --> not used
+#    mailing:
+#      frontend:
+#        activation-url: http://localhost:4200/activate-account
+#    cors:
+#      origins: http://192.168.0.227:8088/,http://localhost:8088/,http://localhost:4200,http://192.168.0.227:8080
+#    file:
+#      uploads:
+#        photos-output-path: ./app/uploads
+#  server:
+#    port: 8088

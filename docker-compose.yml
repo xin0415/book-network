@@ -20,6 +20,26 @@ services:
     ports:
       - 1080:1080
       - 1025:1025
+## used to setup docker for backend
+#  bsn-api:
+#    container_name: bsn-api
+#    image: bsn/bsn:1.0.0
+#    ports:
+#      - 8088:8088
+#    networks:
+#      - spring-demo
+#    depends_on:
+#      - postgres
+## used to setup docker for frontend
+#  bsn-ui:
+#    container_name: bsn-ui
+#    image: bsn/bsn-ui:1.0.0
+#    ports:
+#      - 8080:80     # 80 is container port
+#    networks:
+#      - spring-demo
+#    depends_on:
+#      - bsn-api
 networks:
   spring-demo:
     driver: bridge
