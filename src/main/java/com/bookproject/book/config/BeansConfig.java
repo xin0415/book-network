@@ -1,6 +1,7 @@
 package com.bookproject.book.config;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.AuditorAware;
@@ -25,6 +26,9 @@ import java.util.List;
 public class BeansConfig {
 
     private final UserDetailsService userDetailsService;
+    // using below line if config the cors value in application-dev,yml file
+//    @Value("${application.cors.origins:*}")   // if application.cors.origins is not available, the default will be *
+    private List<String> allowedOrigins;
 
     @Bean
     public AuthenticationProvider authenticationProvider(){
@@ -54,7 +58,10 @@ public class BeansConfig {
         final CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
 //        config.setAllowedOrigins(Collections.singletonList("http://localhost:4200"));
+//        config.setAllowedOrigins(allowedOrigins); // if you define allowedOrigins above, you can use this line
         config.setAllowedOrigins(List.of("http://localhost:4200","http://localhost:8080"));
+//        config.setAllowedHeaders(Arrays.asList("*"));     // not recommended for production
+//        config.setAllowedMethods(Arrays.asList("*"));     // not recommended for production
         config.setAllowedHeaders(Arrays.asList(
                 HttpHeaders.ORIGIN,
                 HttpHeaders.CONTENT_TYPE,

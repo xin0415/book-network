@@ -90,6 +90,7 @@ server:
 #    mailing:
 #      frontend:
 #        activation-url: http://localhost:4200/activate-account
+##  setup for cors
 #    cors:
 #      origins: http://192.168.0.227:8088/,http://localhost:8088/,http://localhost:4200,http://192.168.0.227:8080
 #    file:
