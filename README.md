@@ -74,7 +74,7 @@ By following this project, students will learn:
 
 ## Contains the study code
 
-## Setup the docker
+## Setup the docker and github for CI/CD pipeline
 https://www.youtube.com/watch?v=UtEHSngmdHA
 
 - one container contains many images

@@ -12,7 +12,7 @@ on:
 
 jobs:
   compile:
-    runs-on: self-hosted
+    runs-on: self-hosted    # ubuntu
     name: Compile project
     steps:
       - name: Checkout code
@@ -89,7 +89,7 @@ jobs:
       - name: Login to DockerHub
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}   # this secrets is setup in github security and valuable
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build & Push to DockerHub
